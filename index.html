@@ -5,39 +5,74 @@
    <style>
      body{
        background: black;
-       margin: 1;
+       margin: 0;
        cursor: url(pusheen.png),auto;
      }
+     
      h1 {
     	text-align: center;
       font-family: "Lucida Console", "Courier New", monospace;
       color: white;
       }
+     
      p {
        font-family: "Times New Roman";
        color: white;
-       font-size: 13px
+       font-size: 13px;
      }
+     
+     #youtube{
+       position: absolute;
+       left: 100px;
+       top: 100px;
+       transition: all 1s;
+     }
+     
    </style>
+   
    <title>Stella's Music Garden</title>
- </head>
+
+  </head>
+  
  <body>
    <header>
      <h1>Stella's Music Garden</h1>
      <p>This is my Digital Music Garden, where I keep record of all videos and music that shaped the way I am today. 
        The list of songs here is not simply a playlist of my favorite songs, but it portrays my life. 
       </p>
-   <p>
-     <a href="https://www.youtube.com/watch?v=0-q1KafFCLU&pp=ygUMY2VsZWJyaXR5IGl1" target="_blank">My Main Song</a>
+   <center>
+    <p>
+     <a href="https://www.youtube.com/watch?v=0-q1KafFCLU&pp=ygUMY2VsZWJyaXR5IGl1" target="_blank">IU-Celebrity</a>
      </p>
+     </center>
    </header>
-   
+     <iframe id="youtube" src="https://www.youtube.com/embed/xSE9Qk9wkig"></iframe>
   
-  
-  
+  <button id="new-vid">next</button>
+
+  <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+  <script>
+    /* global nn */
+    
+    const videoIds = [
+      'xSE9Qk9wkig', 
+      'J---aiyznGQ',
+      'hvL1339luv0',
+      'cVvI8GdTfh4'
+    ]
+    
+    function randomCatVid () {
+      const youtube = nn.get('#youtube')
+      const id = nn.random(videoIds)
+      const url = 'https://www.youtube.com/embed/' + id
+      youtube.setAttribute('src', url)
+      const w = nn.width - 300
+      youtube.style.left = nn.random(w) + 'px'
+    }
+    
+    nn.get('#new-vid').on('click', randomCatVid)
+    
+    
+  </script>
   </body>
-  
-  
-  
-  
 </html>
