@@ -30,6 +30,29 @@
        transition: all 1s;
      }
      
+     .gallery {
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       grid-gap: 10px;
+       max-width: 630px;
+       margin: 0 auto;
+     }
+     
+     .gallery > div {
+       width: 200px;
+       height: 200px;
+       background-position: center;
+       background-size: cover;
+     }
+     
+     @media (max-width: 630px) {
+       .gallery > div {
+         width: calc(33vw - 10px);
+         height: calc(33vw - 10px);
+       }
+     }
+  
+    
    </style>
    
    <title>Stella's Music Garden</title>
@@ -49,15 +72,10 @@
      </p>
      </center>
    </header>
-     <iframe width="560" height="315" 
-             src="https://www.youtube.com/embed/0-q1KafFCLU?si=ALpaGP0-OgiD_AEa" 
-             title="YouTube video player" frameborder="0"allow="accelerometer;
-                    autoplay; 
-                    clipboard-write; 
-                    encrypted-media; 
-                    gyroscope; 
-                    picture-in-picture; 
-                    web-share" allowfullscreen></iframe>
+   
+   
+   
+  <iframe id="youtube" src="https://www.youtube.com/embed/0-q1KafFCLU?si=Bz9sWAKDMFJa-Wg8"></iframe>
   
   <button id="new-vid">next</button>
 
@@ -66,24 +84,46 @@
     /* global nn */
     
     const videoIds = [
-      '-AonO5W1ZO8?si=CgT99f1fUIaqh7zY', 
-      'LbvE0FV_70U?si=WoRvWVciupOwtbtq',
-      'FYChd-mQ0MI?si=S8ubCJMUdgljDPTw',
-      'pqZciXzAKyg?si=jQUK676_J2l4if_8'
+      'pqZciXzAKyg', 
+      'FYChd-mQ0MI',
+      '-AonO5W1ZO8',
+      'xPoIQ9cwayA'
     ]
     
-    function favoritevid () {
+    function favoritevids () {
       const youtube = nn.get('#youtube')
       const id = nn.random(videoIds)
       const url = 'https://www.youtube.com/embed/' + id
       youtube.setAttribute('src', url)
-      const w = nn.width - 300
-      youtube.style.left = nn.random(w) + 'px'
     }
     
-    nn.get('#new-vid').on('click', favoritevid)
+    nn.get('#new-vid').on('click', favoritevids)
     
     
   </script>
+   
   </body>
+  <p>
+    asdf
+  </p>
+  
+  <section class="gallery">
+      <div>
+      <a href="https://google.com" target="_blank">
+    <!-- Insert your image source and alt text here -->
+    <img src="tutorials/responsive-web-design/dog1.jpg" alt="Your Image Description">
+  </a>
+  </div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog1.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog2.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog3.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog4.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog5.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog6.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog7.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog8.jpg)"></div>
+  <div style="background-image: url(tutorials/responsive-web-design/dog9.jpg)"></div>
+</section>
+  
+  
 </html>
