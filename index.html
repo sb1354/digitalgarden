@@ -5,8 +5,11 @@
    <style>
      body{
        background: black;
-       margin: 0;
+       margin: 20;
        cursor: url(pusheen.png),auto;
+     }
+     header {
+       position: center;
      }
      
      h1 {
@@ -14,6 +17,7 @@
     	text-align: center;
       font-family: "Lucida Console", "Courier New", monospace;
       color: white;
+      max-width: 500px;
       }
      
      p {
@@ -21,10 +25,23 @@
        font-family: "Times New Roman";
        color: white;
        font-size: 13px;
+       max-width: 700px;
+     }
+     
+     .middle_container{
+       width: 100%;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+     }
+     
+     .middle_container_element{
+       margin: 10px;
      }
      
      #youtube{
-       position: relative;
+       position: static;
        left: 100px;
        top: 100px;
        transition: all 1s;
@@ -32,26 +49,32 @@
      
      .gallery {
        display: grid;
-       grid-template-columns: 1fr 1fr 1fr;
+       grid-template-columns: 1fr 1fr 1fr 1fr;
        grid-gap: 10px;
        max-width: 630px;
        margin: 0 auto;
      }
      
-     .gallery > div {
-       width: 200px;
-       height: 200px;
-       background-position: center;
-       background-size: cover;
+     .grid-container {
+       padding-top: 20px;
+       display: flex;
+       flex-wrap: wrap;
+       gap: 16px; 
      }
      
-     @media (max-width: 630px) {
-       .gallery > div {
-         width: calc(33vw - 10px);
-         height: calc(33vw - 10px);
-       }
+     .grid-item {
+       flex: 1;
+       min-width: calc(25% - 16px); 
+       margin-bottom: 16px; 
+       box-sizing: border-box; 
      }
-  
+     
+     .grid-item img {
+       width: 100%;
+       height: auto;
+       display: block; 
+     }
+     
     
    </style>
    
@@ -60,24 +83,26 @@
   </head>
   
  <body>
+  <center>
    <header>
      <h1>Stella's Music Garden</h1>
      <p>Welcome to my Digital Music Garden, a curated collection of videos and music that have
        profoundly infuenced and shaped who I am today. This compilation goes beyond a mere
        playlist of my favorite tunes; it serves as a vivid portrayal of the chapters and moments that define my life.
       </p>
-   <center>
+   
     <p>
      <a href="https://www.youtube.com/watch?v=LOadwTF77tw" target="_blank">Never Mind</a>
      </p>
-     </center>
    </header>
-   
-   
-   
-  <iframe id="youtube" src="https://www.youtube.com/embed/0-q1KafFCLU?si=Bz9sWAKDMFJa-Wg8"></iframe>
-  
-  <button id="new-vid">next</button>
+    </center>
+<div class="middle_container">
+  <div class="middle_container_elements">
+    <iframe class="middle_container_elements" id="youtube" src="https://www.youtube.com/embed/0-q1KafFCLU?si=Bz9sWAKDMFJa-Wg8">
+       </iframe>
+  </div>
+    <button id="new-vid">next</button>
+   </div>   
 
   <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
   <script>
@@ -103,27 +128,49 @@
   </script>
    
   </body>
-  <p>
-    asdf
-  </p>
   
-  <section class="gallery">
-      <div>
-      <a href="https://google.com" target="_blank">
-    <!-- Insert your image source and alt text here -->
-    <img src="tutorials/responsive-web-design/dog1.jpg" alt="Your Image Description">
-  </a>
-  </div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog1.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog2.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog3.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog4.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog5.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog6.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog7.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog8.jpg)"></div>
-  <div style="background-image: url(tutorials/responsive-web-design/dog9.jpg)"></div>
-</section>
-  
+  <div class="grid-container">
+    <div class="grid-item">
+      <a href="https://open.spotify.com/track/0IktbUcnAGrvD03AWnz3Q8?si=0b3c76dc399a487c" target="_blank">
+      <img src="lucky.jpg" alt="Lucky ft. Colbie Caillat - Jason Mraz">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://open.spotify.com/track/6x7SB38tuekpu4xpH9OIPY?si=a08a9a6a4ba748d0" target="_blank">
+      <img src="spinning globe.jpg" alt="Spinning Globe - Yonezu Kenshi">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://open.spotify.com/track/6MowG7MRVgPfGlCMsXKMJ2?si=945263f47316403b" target="_blank">
+      <img src="bird set free.jpg" alt="Bird Set Free - Sia">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://open.spotify.com/track/4G8wt3fUBpgBjI35TBF2eQ?si=e125b6baccf24cfc" target="_blank">
+      <img src="duet.jpg" alt="Duet - Rachael Yamagata">
+      </a>
+    </div>
+    <div class="grid-item">
+      <a href="https://open.spotify.com/track/18uwL0vNUanqZH0ro2QcOP?si=337f4e5f4a014339" target="_blank">
+      <img src="comethru.jpg" alt="comethru - Jeremy Zucker">
+      </a>
+    </div>
+        <div class="grid-item">
+      <a href="https://open.spotify.com/track/6BskTMfDjXVzeqQHOau5Vi?si=906be3bbb7ac41a7" target="_blank">
+      <img src="young forever.jpg" alt="Epilogue: Young Forever - BTS">
+      </a>
+    </div>
+        <div class="grid-item">
+      <a href="https://open.spotify.com/track/18uwL0vNUanqZH0ro2QcOP?si=337f4e5f4a014339" target="_blank">
+      <img src="duet.jpg" alt="Snooze ft. Ryuichi Sakamoto & WOOSUNG - Agust D">
+      </a>
+    </div>
+        <div class="grid-item">
+      <a href="https://open.spotify.com/track/4j3M8NrbGSXdMPwEVsnfHE?si=df03c9256a684b46" target="_blank">
+      <img src="snooze.jpg" alt="Duet - Rachael Yamagata">
+      </a>
+    </div>
+
+</div>
   
 </html>
