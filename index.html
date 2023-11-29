@@ -75,11 +75,17 @@
        display: block; 
      }
      
+     .star-container {
+       position: absolute;
+       z-index: -1;
+       top: 0px;
+      }
+     
      .star {
        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
        width: 100px;
        height: 100px;
-       background-color: white;
+       background-color: rgb(125,125,125);
        display: inline-block;
      }
   
@@ -129,13 +135,17 @@
     }
     
     nn.get('#new-vid').on('click', favoritevids)
-    
-    function newPatch () {
+
+  </script>
+   
+  <script>
+        /* global nn */
+      function newPatch () {
       const div = nn.create('div')
       if (nn.random() > 0.5) {
         div.setAttribute('class', 'star')
       }
-      div.addTo('body')
+      div.addTo('.star-container')
     }
     
     function animation () {
@@ -144,9 +154,10 @@
     }
     
     nn.on('load', animation)
-
   </script>
    
+
+  
   </body>
   
   <div class="grid-container">
@@ -189,6 +200,9 @@
       <a href="https://open.spotify.com/track/5NqGfELjcdvRIUuhgZJ34W?si=7a183334e5524085" target="_blank">
       <img src="marigold.jpg" alt="Marigold - Aimyon">
       </a>
+    </div>
+    <div class="star-container">
+      
     </div>
 
 </div>
