@@ -75,7 +75,14 @@
        display: block; 
      }
      
-    
+     .star {
+       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+       width: 100px;
+       height: 100px;
+       background-color: white;
+       display: inline-block;
+     }
+  
    </style>
    
    <title>Stella's Music Garden</title>
@@ -107,7 +114,6 @@
   <script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
   <script>
     /* global nn */
-    
     const videoIds = [
       'pqZciXzAKyg', 
       'FYChd-mQ0MI',
@@ -124,7 +130,21 @@
     
     nn.get('#new-vid').on('click', favoritevids)
     
+    function newPatch () {
+      const div = nn.create('div')
+      if (nn.random() > 0.5) {
+        div.setAttribute('class', 'star')
+      }
+      div.addTo('body')
+    }
     
+    function animation () {
+      newPatch()
+      setTimeout(animation, 1000)
+    }
+    
+    nn.on('load', animation)
+
   </script>
    
   </body>
